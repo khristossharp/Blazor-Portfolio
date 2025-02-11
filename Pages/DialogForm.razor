@@ -1,0 +1,64 @@
+﻿@using BaseClasses
+
+@inject NavigationManager Navigation
+@inject PlayerInfoServices PlayerInfoServices
+
+<MudDialog Style="width:630px;height: 400px; padding-top:15px">
+    <DialogContent  >
+        <MudCard Outlined="true" >
+            <MudCardHeader Style="justify-content:center">
+                <MudText Typo="Typo.h5">Welcome to TennisGO</MudText>
+            </MudCardHeader>
+
+            <MudForm @ref="mudForm">
+                <MudCardContent Class="gap-4">
+                    <MudTextField Variant="Variant.Outlined" Required @bind-Value="newPlayer.Name" For="@(()=>newPlayer.Name)" Label="Player Name"></MudTextField>
+
+
+
+                    <MudSelect @bind-Value="newPlayer.CourtTypeEnum" Label="Select tennis court color" Variant="Variant.Outlined">
+                        <MudSelectItem Value="Player.CourtType.grass">
+                            <span style="color:forestgreen">Grass court</span>
+                        </MudSelectItem>
+                        <MudSelectItem Value="Player.CourtType.clay">
+                            <span style="color:#D2691E">Clay court</span>
+                        </MudSelectItem>
+                        <MudSelectItem Value="Player.CourtType.hard">
+                            <span style="color: #1E90FF">Hard court</span>
+                        </MudSelectItem>
+                    </MudSelect>
+
+                </MudCardContent>
+            </MudForm>
+
+            <MudCardActions>
+                <MudButton Color=Color.Primary OnClick="Sumbit">Play</MudButton>
+            </MudCardActions>
+        </MudCard>  
+    </DialogContent>
+    <DialogActions>
+
+    </DialogActions>
+</MudDialog>
+
+@code 
+{
+    [Parameter]
+    public MudDialog MudDialog { get; set; }
+
+    private MudForm mudForm;
+    private Player newPlayer = new Player(id);
+    private static string id;
+
+
+    private async Task Sumbit()
+    {
+        if (String.IsNullOrEmpty( newPlayer.Name))
+        {
+            return;
+        }
+
+        PlayerInfoServices.PlayerInfo = newPlayer;
+        Navigation.NavigateTo("game");
+    }
+}

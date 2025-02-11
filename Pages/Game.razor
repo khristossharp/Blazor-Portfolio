@@ -1,0 +1,113 @@
+﻿@page "/game"
+@using BaseClasses
+@inject ISnackbar Snackbar
+@inject IJSRuntime IJSRuntime
+@inject PlayerInfoServices PlayerInfoServices
+@inject IDialogService DialogService
+
+<style>
+    main {
+        background-color: #d3d3d3;
+    }
+</style>
+
+
+    <MudButton Style="width:70px;position:relative;top:20px;" IconSize="Size.Large" Variant="Variant.Outlined" Href="/" StartIcon="@Icons.Material.Filled.ArrowBack"></MudButton>
+   <div class="container">
+  
+        <div class="box">
+        <MudText style="font-size:60px; font-family:math;">@PlayerInfoServices.PlayerInfo.Name </MudText>
+        <MudChip T="string" Color="Color.Primary" class="chipSize"><MudText style="font-size:60px" Inline="true">@((_playerPoint == 60 ? "AD" : _playerPoint))</MudText></MudChip>
+        <MudChip T="string" Color="Color.Primary" class="chipSize " ><MudText style="font-size:60px" Inline="true">@_setPointPlayer</MudText></MudChip>
+        <MudChip  T="string" Color="Color.Success" class="chipSize "><MudText style="font-size:60px" Inline="true">@_firstSetResultPlayer</MudText></MudChip>
+
+        </div>
+            
+     <div class="box">
+        <div class="court" style="background-color: @_coutColor">
+            <div class="net"></div> 
+            <div class="service-line-top"></div>
+            <div class="service-line-bottom"></div>
+            <div class="baseline"></div> 
+            <div class="singles-line-left"></div>
+            <div class="singles-line-right"></div>
+            <div class="doubles-line"></div> 
+            <div class="singles-line-middle-top"></div>
+            <div class="singles-line-middle-bottom"></div>
+            <MudImage id="ball" class="ball" Src="images/custom4.png" Alt="Tennis Ball"></MudImage>
+            <MudIcon class="racket" id="racket" Icon="@Icons.Material.Filled.SportsTennis" Style="font-size:6em"  Title="Tennis Racket" />
+        </div>
+
+        
+      </div>
+
+        <div class="box">
+        <MudText><MudIcon style="width:60px;height:60px;" Icon="@Icons.Material.Filled.LaptopWindows" Title="Laptop" /></MudText>
+        <MudChip T="string" Style="@($"background-color:{Colors.DeepPurple.Lighten3}")" class="chipSize"><MudText style="font-size:60px" Inline="true">@((_computerPoint == 60 ? "AD" : _computerPoint))</MudText></MudChip>
+        <MudChip T="string" Style="@($"background-color:{Colors.DeepPurple.Lighten3}")" class="chipSize"><MudText style="font-size:60px" Inline="true">@_setPointComputer</MudText></MudChip>
+         <MudChip T="string" Color="Color.Success" class="chipSize"><MudText style="font-size:60px" Inline="true">@_firstSetResultComputer</MudText></MudChip>
+
+        </div>
+    </div>
+
+
+
+<MudContainer Class="align-content-end" Style="margin-top:8px">
+
+
+    <div class="d-block align-text-center" style="text-align:center;margin-bottom: 12px;">
+        <MudButton StartIcon="@Icons.Material.Filled.ArrowLeft" Color="Color.Warning" Variant="Variant.Filled" Disabled="@((_isServe == true) ? false : true)" OnClick=@(()=>ServeOrHit("Left", true))>Serve Left</MudButton>
+        <MudButton StartIcon="@Icons.Material.Filled.ArrowUpward" Color="Color.Warning" Variant="Variant.Filled" Disabled="@((_isServe == true) ? false : true)" OnClick=@(()=>ServeOrHit("Center", true))>Serve Center</MudButton>
+        <MudButton StartIcon="@Icons.Material.Filled.ArrowRight" Color="Color.Warning" Variant="Variant.Filled" Disabled="@((_isServe == true) ? false : true)" OnClick=@(()=>ServeOrHit("Right", true))>Serve Right</MudButton>
+    </div>
+
+    <div class="d-block" style="text-align:center;margin-bottom: 20px;">
+        <MudButton StartIcon="@Icons.Material.Filled.ArrowLeft" Variant="Variant.Outlined" Color="Color.Warning" Disabled="@((_isServe == true) ? true : false)" OnClick=@(()=>ServeOrHit("Left", false))>Hit Left</MudButton>
+        <MudButton StartIcon="@Icons.Material.Filled.ArrowUpward" Variant="Variant.Outlined" Color="Color.Warning" Disabled="@((_isServe == true) ? true : false)" OnClick=@(()=>ServeOrHit("Center", false))>Hit Center</MudButton>
+        <MudButton StartIcon="@Icons.Material.Filled.ArrowRight" Variant="Variant.Outlined" Color="Color.Warning" Disabled="@((_isServe == true) ? true : false)" OnClick=@(()=>ServeOrHit("Right", false))>Hit Right</MudButton>
+    </div>
+
+
+</MudContainer>
+
+<MudDialog @bind-Visible="_visibleDialog" Style="width:630px;height: 400px; padding-top:15p">
+    <DialogContent>
+
+        <MudCard Outlined="true" Style="position:relative; top:50px" >
+            <MudCardHeader Style="justify-content:center">
+                <MudText Typo="Typo.h5" style="font-family:math;">
+                Congratulation @((_firstSetResultPlayer > 6) ? $"{PlayerInfoServices.PlayerInfo.Name}" : "Computer") won
+            </MudText>
+            </MudCardHeader>
+
+            <MudCardContent >
+                <MudText Typo="Typo.h6" Style="text-align:center">
+
+                    <MudText style="font-size:40px; font-family:math;" Inline="true">@PlayerInfoServices.PlayerInfo.Name</MudText>
+                    <MudChip T="string" Color="Color.Primary" Size="Size.Large"><MudText Inline="true">@_firstSetResultPlayer</MudText></MudChip>
+               :
+                <MudChip T="string" Style="@($"background-color:{Colors.DeepPurple.Lighten3}")" Size="Size.Large"><MudText Inline="true">@_firstSetResultComputer</MudText></MudChip>
+                   <MudIcon style="width:60px;height:60px;" Icon="@Icons.Material.Filled.LaptopWindows" Title="Laptop" />
+
+            </MudText>
+            </MudCardContent>
+            <MudCardActions Style="justify-content:center;">
+                <MudButton Variant="Variant.Outlined" Class="mr-20"  Color="Color.Primary" Size="Size.Large" Href="/">Main Page</MudButton>
+                
+                <MudButton  Variant="Variant.Outlined" Color="Color.Primary" Size="Size.Large" @onclick="RestartGame">Play Again</MudButton>
+            
+            </MudCardActions>
+        </MudCard>
+
+    </DialogContent>
+</MudDialog>
+
+@code 
+{
+    [Parameter]
+    public string playerInfo { get; set; }
+
+    
+
+}
+

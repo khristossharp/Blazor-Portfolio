@@ -1,0 +1,62 @@
+﻿
+.textStyle {
+    color: #143D60;
+    font-family: Montserrat;
+}
+
+.mainPortfolio {
+    position: relative;
+    top: 220px;
+    right: 5px;
+    width: 758px;
+    text-align:center;
+}
+
+.child {
+    top: 260px;
+    width: 25%;
+    left: 119px;
+}
+
+.about-section {
+    position: relative;
+    bottom: 380px;
+    left: 760px;
+    width: 960px;
+}
+
+
+
+.aboutMeSummary {
+    flex-direction: row-reverse;
+}
+
+
+
+.typoStyle {
+    display: inline;
+    padding-right: 10px;
+    font-size: 20px;
+}
+
+
+
+.my-custom-class {
+    backdrop-filter: blur(10px);
+}
+
+.backgroundStyle {
+    background-color: #e5e5f7;
+    opacity: 1;
+    background-image: radial-gradient(#A0C878 1.35px, #e5e5f7 1.35px);
+    background-size: 27px 27px;
+}
+
+
+body {
+    background-color: #e5e5f7;
+    opacity: 1;
+    background-image: radial-gradient(#A0C878 1.35px, #e5e5f7 1.35px);
+    background-size: 27px 27px;
+}
+
