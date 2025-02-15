@@ -2,48 +2,44 @@
 @inject IDialogService DialogService
 
 
-<PageTitle>Home</PageTitle>
+
 
 <style>
-
-    .mainText {
-        color: #143D60;
-        font-family: Montserrat;
-    }
-
-    .iconsstyle {
-        font-size: 70px;
-        margin-left: 45px;
-    }
-
     .mud-tabs-tabbar {
         background-color: transparent;
     }
 
+    .mud-typography-h6, .mud-typography-h2, .mud-typography-h5 {
+        font-family: null;
+    }
+
+    .mud-timeline-item-dot .mud-timeline-item-dot-inner.mud-timeline-dot-default {
+        background-color: white;
+    }
 </style>
 
 <div class="mainPortfolio">
     <MudImage Elevation="23" Style="border-radius:50%;height: 30%; width:30%" Src="images/imagePR.png" Alt="prof"></MudImage>
-    <MudText  Typo="Typo.h2" Class="mainText">Khristos Zin</MudText>
-    <MudText Typo="Typo.h6" Class="mainText">Software Developer | AWS Certified Cloud Practitioner |  C# ASP .NET</MudText>
+    <MudText  Typo="Typo.h2" Class="home-page-font-style">Khristos Zin</MudText>
+    <MudText Typo="Typo.h6" Class="home-page-font-style">Software Developer | AWS Certified Cloud Practitioner |  C# ASP .NET</MudText>
 
 </div>
 <div class="mainPortfolio child">
-    <MudCard Elevation="23" Class="mainText backgroundStyle" >
+    <MudCard Elevation="23" Class=" background-style" >
         <MudCardContent >
             <MudIcon Icon="@Icons.Material.Filled.PushPin" Size="Size.Large" Style="color:#143D60;"></MudIcon>
 
-            <MudText>TennisGo Project</MudText>
-            <MudText Typo="Typo.body2">Enjoy the simple game of tennis</MudText>
+            <MudText Class="home-page-font-style" Typo="Typo.h5">TennisGo Project</MudText>
+            <MudText Class="home-page-font-style" Typo="Typo.body2">Enjoy the simple game of tennis</MudText>
             <br />
-            <MudList T="string">
+            <MudList Class="home-page-font-style" T="string">
                 <MudListItem Text="Try to beat the computer 1v1" Icon="@Icons.Material.Filled.ArrowRight" />
                 <MudListItem Text="Select tennis court color" Icon="@Icons.Material.Filled.ArrowRight" />
                 <MudListItem Text="Begin the game with the serve" Icon="@Icons.Material.Filled.ArrowRight" />
             </MudList>
         </MudCardContent>
         <MudCardActions>
-            <MudButton @onclick="OpenRegistrationFormAsync" Variant="Variant.Outlined" style="background-color:#228B22"><span class="mainText" style="color:white ">Learn More</span></MudButton>
+            <MudButton @onclick="OpenRegistrationFormAsync" Variant="Variant.Filled" Style="color:yellow;font-weight:bold">Learn More</MudButton>
             <MudImage id="ball" class="ball" Height="20" Style="right:17px" Src="images/custom4.png" Alt="Tennis Ball"></MudImage>
         </MudCardActions>
     </MudCard>
@@ -54,10 +50,10 @@
 
 
 
-    <MudTabs Elevation="23" Rounded="true" ApplyEffectsToContainer="true" PanelClass="pa-6">
+    <MudTabs Elevation="23"  Rounded="true" ApplyEffectsToContainer="true" PanelClass="pa-6">
 
-        <MudTabPanel Class="backgroundStyle" Icon="@Icons.Material.Sharp.PushPin" Text="About Me">
-                <MudText Typo="Typo.h6" Class="mainText" Style="text-align:center">
+        <MudTabPanel Class="background-style" Icon="@Icons.Material.Sharp.PushPin" Text="About Me">
+                <MudText Typo="Typo.h6" Class="home-page-font-style" Style="text-align:center">
                     Professional journey is driven by a strong commitment to building high-quality features, 
                     and responsive web applications that enhance user experience. My experience has strengthened my proficiency in C#, ASP.NET core, and SQL, 
                     reinforcing my expertise in cloud computing as an AWS Certified Cloud Practitioner
@@ -65,25 +61,25 @@
      
         </MudTabPanel>
 
-        <MudTabPanel Class="backgroundStyle" Icon="@Icons.Material.Sharp.Book"  Text="Education">
+        <MudTabPanel Class="background-style" Icon="@Icons.Material.Sharp.Book"  Text="Education">
                      <MudTimeline>
-                <MudTimelineItem Class="mainText" Size="Size.Small">
+                <MudTimelineItem Size="Size.Small" Variant="Variant.Filled" Elevation="20">
                             <ItemOpposite>
-                                <MudText Class="mainText" Typo="Typo.h4">2011 - 2016</MudText>
+                                <MudText Class="home-page-font-style" Typo="Typo.h6">Sep 2011 - July 2016</MudText>
                             </ItemOpposite>
                             <ItemContent>
-                                <MudText Typo="Typo.subtitle1">
+                        <MudText Class="home-page-font-style" Style="text-align:center; font-weight:bold" Typo="Typo.h5">
                                     Master's degree in Tourism and Travel Services Management
                                 </MudText>
                             </ItemContent>
                    </MudTimelineItem>
 
-                    <MudTimelineItem Class="mainText" Size="Size.Small">
+                <MudTimelineItem Size="Size.Small" Variant="Variant.Filled" Elevation="20">
                             <ItemOpposite>
-                                <MudText Class="mainText" Typo="Typo.h4">2022 - 2023</MudText>
+                                <MudText Class="home-page-font-style" Typo="Typo.h6">Jan 2022 - Apr 2023</MudText>
                             </ItemOpposite>
                             <ItemContent>
-                                <MudText Typo="Typo.subtitle1">
+                        <MudText Class="home-page-font-style" Style="text-align:center; font-weight:bold" Typo="Typo.h5">
                                     Diploma of Computer Software Technology/Technician
                                 </MudText>
                             </ItemContent>
@@ -91,24 +87,24 @@
                     </MudTimeline>
         </MudTabPanel>
 
-        <MudTabPanel Class="backgroundStyle" Icon="@Icons.Material.Sharp.DeveloperMode" Text="IT Experience">
+        <MudTabPanel Class="background-style" Icon="@Icons.Material.Sharp.DeveloperMode" Text="IT Experience">
             <MudTimeline>
-                <MudTimelineItem Class="mainText" Size="Size.Small">
+                <MudTimelineItem  Size="Size.Small" Variant="Variant.Filled" Elevation="20">
                     <ItemOpposite>
-                        <MudText Class="mainText" Typo="Typo.h4"> Mar 2022 -  Mar 2024</MudText>
+                        <MudText Class="home-page-font-style" Typo="Typo.h6"> Mar 2022 -  Mar 2024</MudText>
                     </ItemOpposite>
                     <ItemContent>
-                        <MudText Typo="Typo.subtitle1" GutterBottom="true"> Software Developer </MudText>
+                        <MudText Class="home-page-font-style" Style="text-align:center; font-weight:bold;padding-right: 100px;" Typo="Typo.h5" GutterBottom="true"> Software Developer </MudText>
                     </ItemContent>
                 </MudTimelineItem>
 
-                <MudTimelineItem Class="mainText" Size="Size.Small">
+                <MudTimelineItem Size="Size.Small" Variant="Variant.Filled" Elevation="20">
                     <ItemOpposite>
-                        <MudText Class="mainText" Typo="Typo.h4">Apr 2024 - Present</MudText>
+                        <MudText Class="home-page-font-style" Typo="Typo.h6">Apr 2024 - Present</MudText>
 
                     </ItemOpposite>
                     <ItemContent>
-                        <MudText Style="padding-left: 160px" Typo="Typo.subtitle1">
+                        <MudText Class="home-page-font-style" Style="text-align:center; font-weight:bold;padding-left:75px" Typo="Typo.h5">
                             Professional Development
                         </MudText>
                     </ItemContent>
@@ -116,39 +112,39 @@
             </MudTimeline>
         </MudTabPanel>
 
-        <MudTabPanel Class="backgroundStyle" Icon="@Icons.Material.Sharp.Settings" Text="Skills">
+        <MudTabPanel Class="background-style" Icon="@Icons.Material.Sharp.Settings" Text="Skills">
             <MudGrid>
                 <MudItem xs="12" sm="6">
                     <div>
-                        <div class="typoStyle mainText">C#</div>
+                        <div class="typo-style home-page-font-style">C#</div>
                         <div class="d-inline"><MudProgressLinear Color="Color.Warning" Size="Size.Small" Value="75" /></div>
                     </div>
                 </MudItem>
 
                 <MudItem xs="12" sm="6">
                     <div>
-                        <div class="typoStyle mainText">ASP .Net core</div>
+                        <div class="typo-style home-page-font-style">ASP .Net core</div>
                         <div class="d-inline"><MudProgressLinear Color="Color.Warning" Size="Size.Small" Value="72" /></div>
                     </div>
                 </MudItem>
 
                 <MudItem xs="12" sm="6">
                     <div>
-                        <div class="typoStyle mainText">JavaScript</div>
+                        <div class="typo-style home-page-font-style">JavaScript</div>
                         <div class="d-inline"><MudProgressLinear Color="Color.Warning" Size="Size.Small" Value="65" /></div>
                     </div>
                 </MudItem>
 
                 <MudItem xs="12" sm="6">
                     <div>
-                        <div class="typoStyle mainText">AWS</div>
+                        <div class="typo-style home-page-font-style">AWS</div>
                         <div class="d-inline"><MudProgressLinear Color="Color.Warning" Size="Size.Small" Value="65" /></div>
                     </div>
                 </MudItem>
 
                 <MudItem xs="12" sm="6">
                     <div>
-                        <div class="typoStyle mainText">HTML5/CSS</div>
+                        <div class="typo-style home-page-font-style">HTML5/CSS</div>
 
                         <div class="d-inline"><MudProgressLinear Color="Color.Warning" Size="Size.Small" Value="92" /></div>
                     </div>
@@ -156,34 +152,34 @@
 
                 <MudItem xs="12" sm="6">
                     <div>
-                        <div class="typoStyle mainText">Blazor</div>
+                        <div class="typo-style home-page-font-style">Blazor</div>
                         <div class="d-inline"><MudProgressLinear Color="Color.Warning" Size="Size.Small" Value="94" /></div>
                     </div>
                 </MudItem>
                 <MudItem xs="12" sm="6">
                     <div>
-                        <div class="typoStyle mainText">SQL</div>
+                        <div class="typo-style home-page-font-style">SQL</div>
                         <div class="d-inline"><MudProgressLinear Color="Color.Warning" Size="Size.Small" Value="75" /></div>
                     </div>
                 </MudItem>
 
                 <MudItem xs="12" sm="6">
                     <div>
-                        <div class="typoStyle mainText">Git</div>
+                        <div class="typo-style home-page-font-style">Git</div>
                         <div class="d-inline"><MudProgressLinear Color="Color.Warning" Size="Size.Small" Value="79" /></div>
                     </div>
                 </MudItem>
 
                 <MudItem xs="12" sm="6">
                     <div>
-                        <div class="typoStyle mainText">Java</div>
+                        <div class="typo-style home-page-font-style">Java</div>
                         <div class="d-inline"><MudProgressLinear Color="Color.Warning" Size="Size.Small" Value="58" /></div>
                     </div>
                 </MudItem>
 
                 <MudItem xs="12" sm="6">
                     <div>
-                        <div class="typoStyle mainText">Python</div>
+                        <div class="typo-style home-page-font-style">Python</div>
                         <div class="d-inline"><MudProgressLinear Color="Color.Warning" Size="Size.Small" Value="58" /></div>
                     </div>
                 </MudItem>
@@ -191,28 +187,30 @@
             </MudGrid>
         </MudTabPanel>
 
-        <MudTabPanel Class="backgroundStyle" Icon="material-symbols-outlined/license" Text="Certification">
+        <MudTabPanel Class="background-style" Icon="material-symbols-outlined/license" Text="Certification">
             <MudTimeline>
 
-                <MudTimelineItem Class="mainText" Size="Size.Small">
+                <MudTimelineItem Size="Size.Small" Variant="Variant.Filled" Elevation="20">
 
                     <ItemOpposite>
-                        <MudText Class="mainText" Typo="Typo.h4">October 2024</MudText>
+                        <MudText Class="home-page-font-style" Typo="Typo.h6">October 2024</MudText>
                     </ItemOpposite>
 
                     <ItemContent>
-                        <MudText Class="mainText" Typo="Typo.h6">AWS Certified Cloud Practitioner</MudText>
-                        <MudButton Typo="Typo.body2" Target="_blank" Href="https://www.credly.com/badges/43e2d12d-bc60-4e1d-b16d-7f3d1aeafda5" Class="mud-text-secondary"><span style="color:white;">View Credential</span></MudButton>
+                        <MudText Class="home-page-font-style" Style="text-align:center; font-weight:bold" Typo="Typo.h5">AWS Certified Cloud Practitioner</MudText>
+                        <MudButton Typo="Typo.body2" Target="_blank" Href="https://www.credly.com/badges/43e2d12d-bc60-4e1d-b16d-7f3d1aeafda5" Class="mud-text-secondary"><span style=" padding-left: 25px;" class="home-page-font-style">View Credential</span></MudButton>
                     </ItemContent>
                 </MudTimelineItem>
 
-                <MudTimelineItem Class="mainText" Size="Size.Small">
+                <MudTimelineItem Size="Size.Small" Variant="Variant.Filled" Elevation="20">
                     <ItemOpposite>
-                        <MudText Class="mainText" Typo="Typo.h4">July 2024</MudText>
+                        <MudText Class="home-page-font-style" Typo="Typo.h6" >July 2024</MudText>
                     </ItemOpposite>
                     <ItemContent>
-                        <MudText Class="mainText" Typo="Typo.h6">Foundational C# with Microsoft</MudText>
-                        <MudButton Typo="Typo.body2" Target="_blank" Href="https://www.freecodecamp.org/certification/SteelCode/foundational-c-sharp-with-microsoft " Class="mud-text-secondary"><span style="color:white;">View Credential</span></MudButton>
+                        <MudText Class="home-page-font-style" Style="text-align:center; font-weight:bold" Typo="Typo.h6">Foundational C# with Microsoft</MudText>
+                        <MudButton Typo="Typo.body2" Target="_blank" Href="https://www.freecodecamp.org/certification/SteelCode/foundational-c-sharp-with-microsoft " Class="mud-text-secondary">
+                            <span style=" padding-left: 57px;" class="home-page-font-style">View Credential</span>
+                        </MudButton>
                     </ItemContent>
                 </MudTimelineItem>
 
@@ -222,13 +220,13 @@
 
        
 
-        <MudTabPanel Class="backgroundStyle" Icon="material-symbols-outlined/chess_pawn" Text="Hobbies">
+        <MudTabPanel Class="background-style" Icon="material-symbols-outlined/chess_pawn" Text="Hobbies">
 
-                <MudIcon Icon="@Icons.Material.Sharp.SportsSoccer" Class="iconsstyle mainText" Title="Football" />
-                <MudIcon Icon="@Icons.Material.Sharp.SportsTennis" Class="iconsstyle mainText" Title="Tennis" />
-                <MudIcon Icon="@Icons.Material.Sharp.PedalBike" Class="iconsstyle mainText" Title="Cycling" />
-                <MudIcon Icon="@Icons.Material.Sharp.Water" Class="iconsstyle mainText" Title="Swimming" />
-                <MudIcon Icon="@Icons.Material.Sharp.Hiking" Class="iconsstyle mainText" Title="Hiking" />
+                <MudIcon Icon="@Icons.Material.Sharp.SportsSoccer" Class="icons-style home-page-font-style" Title="Football" />
+                <MudIcon Icon="@Icons.Material.Sharp.SportsTennis" Class="icons-style home-page-font-style" Title="Tennis" />
+                <MudIcon Icon="@Icons.Material.Sharp.PedalBike" Class="icons-style home-page-font-style" Title="Cycling" />
+                <MudIcon Icon="@Icons.Material.Sharp.Water" Class="icons-style home-page-font-style" Title="Swimming" />
+                <MudIcon Icon="@Icons.Material.Sharp.Hiking" Class="icons-style home-page-font-style" Title="Hiking" />
         </MudTabPanel>
 
 

@@ -7,17 +7,26 @@
 
 <style>
     main {
-        background-color: #d3d3d3;
+    background-color: #d3d3d3;
     }
 </style>
 
 
-    <MudButton Style="width:70px;position:relative;top:20px;" IconSize="Size.Large" Variant="Variant.Outlined" Href="/" StartIcon="@Icons.Material.Filled.ArrowBack"></MudButton>
-   <div class="container">
-  
-        <div class="box">
-        <MudText style="font-size:60px; font-family:math;">@PlayerInfoServices.PlayerInfo.Name </MudText>
-        <MudChip T="string" Color="Color.Primary" class="chipSize"><MudText style="font-size:60px" Inline="true">@((_playerPoint == 60 ? "AD" : _playerPoint))</MudText></MudChip>
+<MudButton Style="width:70px;position:relative;top:20px;" IconSize="Size.Large" Variant="Variant.Outlined" Href="/" StartIcon="@Icons.Material.Filled.ArrowBack"></MudButton>
+<div class="container">
+
+    <div class="box">
+        <MudText style="font-size:60px; font-family:math;">@PlayerInfoServices.PlayerInfo.NiclName </MudText>
+
+        <div style="display:flex;align-items:center">
+            @if (_isServe)
+            {
+                <MudImage style="width:60px; height:60px;position: fixed;left:405px" Src="images/custom4.png" Alt="Tennis Ball"></MudImage>
+            }
+            <MudChip T="string" Color="Color.Primary" class="chipSize">
+            <MudText style="font-size:60px" Inline="true">@((_playerPoint == 60 ? "AD" : _playerPoint))</MudText>
+       </MudChip>
+        </div>
         <MudChip T="string" Color="Color.Primary" class="chipSize " ><MudText style="font-size:60px" Inline="true">@_setPointPlayer</MudText></MudChip>
         <MudChip  T="string" Color="Color.Success" class="chipSize "><MudText style="font-size:60px" Inline="true">@_firstSetResultPlayer</MudText></MudChip>
 
@@ -43,7 +52,17 @@
 
         <div class="box">
         <MudText><MudIcon style="width:60px;height:60px;" Icon="@Icons.Material.Filled.LaptopWindows" Title="Laptop" /></MudText>
-        <MudChip T="string" Style="@($"background-color:{Colors.DeepPurple.Lighten3}")" class="chipSize"><MudText style="font-size:60px" Inline="true">@((_computerPoint == 60 ? "AD" : _computerPoint))</MudText></MudChip>
+
+        <div style="display:flex;align-items:center">
+        <MudChip T="string" Style="@($"background-color:{Colors.DeepPurple.Lighten3}")" class="chipSize">
+            <MudText style="font-size:60px" Inline="true">@((_computerPoint == 60 ? "AD" : _computerPoint))</MudText>
+        </MudChip>
+            @if (!_isServe)
+            {
+                <MudImage style="width:60px; height:60px;position:fixed;right:405px;" Src="images/custom4.png" Alt="Tennis Ball"></MudImage>
+            }
+        </div>
+
         <MudChip T="string" Style="@($"background-color:{Colors.DeepPurple.Lighten3}")" class="chipSize"><MudText style="font-size:60px" Inline="true">@_setPointComputer</MudText></MudChip>
          <MudChip T="string" Color="Color.Success" class="chipSize"><MudText style="font-size:60px" Inline="true">@_firstSetResultComputer</MudText></MudChip>
 
@@ -76,14 +95,14 @@
         <MudCard Outlined="true" Style="position:relative; top:50px" >
             <MudCardHeader Style="justify-content:center">
                 <MudText Typo="Typo.h5" style="font-family:math;">
-                Congratulation @((_firstSetResultPlayer > 6) ? $"{PlayerInfoServices.PlayerInfo.Name}" : "Computer") won
+                    Congratulation @((_firstSetResultPlayer > 6) ? $"{PlayerInfoServices.PlayerInfo.NiclName}" : "Computer") won
             </MudText>
             </MudCardHeader>
 
             <MudCardContent >
                 <MudText Typo="Typo.h6" Style="text-align:center">
 
-                    <MudText style="font-size:40px; font-family:math;" Inline="true">@PlayerInfoServices.PlayerInfo.Name</MudText>
+                    <MudText style="font-size:40px; font-family:math;" Inline="true">@PlayerInfoServices.PlayerInfo.NiclName</MudText>
                     <MudChip T="string" Color="Color.Primary" Size="Size.Large"><MudText Inline="true">@_firstSetResultPlayer</MudText></MudChip>
                :
                 <MudChip T="string" Style="@($"background-color:{Colors.DeepPurple.Lighten3}")" Size="Size.Large"><MudText Inline="true">@_firstSetResultComputer</MudText></MudChip>

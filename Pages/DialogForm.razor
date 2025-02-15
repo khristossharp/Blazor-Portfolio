@@ -7,14 +7,12 @@
     <DialogContent  >
         <MudCard Outlined="true" >
             <MudCardHeader Style="justify-content:center">
-                <MudText Typo="Typo.h5">Welcome to TennisGO</MudText>
+                <MudText Class="main" Typo="Typo.h5">Welcome to TennisGO</MudText>
             </MudCardHeader>
 
             <MudForm @ref="mudForm">
                 <MudCardContent Class="gap-4">
-                    <MudTextField Variant="Variant.Outlined" Required @bind-Value="newPlayer.Name" For="@(()=>newPlayer.Name)" Label="Player Name"></MudTextField>
-
-
+                    <MudTextField Variant="Variant.Outlined" Required @bind-Value="newPlayer.NiclName" For="@(()=>newPlayer.NiclName)" Label="NickName"></MudTextField>
 
                     <MudSelect @bind-Value="newPlayer.CourtTypeEnum" Label="Select tennis court color" Variant="Variant.Outlined">
                         <MudSelectItem Value="Player.CourtType.grass">
@@ -45,15 +43,13 @@
 {
     [Parameter]
     public MudDialog MudDialog { get; set; }
-
     private MudForm mudForm;
-    private Player newPlayer = new Player(id);
-    private static string id;
+    private Player newPlayer = new Player();
 
 
     private async Task Sumbit()
     {
-        if (String.IsNullOrEmpty( newPlayer.Name))
+        if (String.IsNullOrEmpty(newPlayer.NiclName))
         {
             return;
         }
