@@ -57,7 +57,7 @@ namespace Portfolio.Pages
             await Task.Delay(300);
         }
 
-        private async Task BallOnCourtHit(string position)
+        private async Task CompServeBall(string position)
         {
             await IJSRuntime.InvokeVoidAsync("moveBallWhenHit", position);
             await Task.Delay(300);
@@ -83,24 +83,24 @@ namespace Portfolio.Pages
                 await ServeTheBall(playerValue);
                 await MoveBallWhenServe(playerValue);
                 await MoveRacketToHit(_computerSide, false);
+                //bring back ball to the center
                 await MoveBallWhenServe(string.Empty);
                 if (!_isServe)
                 {
-                    await Task.Delay(250);
+                    await Task.Delay(1000);
                     await SetTheBallForComputerServe();
                 }
             }
             else
             {
                 await HitTheBall(playerValue);
-                await BallOnCourtHit(_computerSide);
+                await CompServeBall(_computerSide);
                 await MoveRacketToHit(playerValue, true);
                 await SetTheBallForComputerServe();
                 if (_isServe)
                 {
-                    await Task.Delay(250);
+                    await Task.Delay(1000);
                     await MoveBallWhenServe(string.Empty);
-                    //await MoveRacketToHit(_computerSide, false);
                 }
 
             }
@@ -241,7 +241,7 @@ namespace Portfolio.Pages
 
 
 
-        private async Task SetPointWin(bool isPlayerWin)
+        private void SetPointWin(bool isPlayerWin)
         {
 
             if (isPlayerWin == true)
@@ -252,7 +252,6 @@ namespace Portfolio.Pages
             else
             {
                 _setPointComputer += 1;
-                await SetTheBallForComputerServe();
                 SetHitOrServe(_isServe);
             }
 
@@ -348,7 +347,6 @@ namespace Portfolio.Pages
             else
             {
                 _isServe = true;
-                MoveBallWhenServe(string.Empty);
             }
 
         }

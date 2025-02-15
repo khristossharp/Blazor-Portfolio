@@ -20,14 +20,17 @@ function moveBallWhenServe(position)
     switch (position)
     {
         case 'Left':
+            ball.style.bottom = '';
             ball.style.left = '10%';
             ball.style.top = '2%';
             break;
         case 'Center':
+            ball.style.bottom = '';
             ball.style.left = '40%';
             ball.style.top = '2%';
             break;
         case 'Right':
+            ball.style.bottom = '';
             ball.style.left = '70%'; 
             ball.style.top = '2%';
             break;
@@ -37,7 +40,7 @@ function moveBallWhenServe(position)
 
 function moveBallWhenHit(position)
 {
-   // var ball = document.getElementById('ball');
+  
     switch (position) {
         case 'Left':
             ball.style.top = '';
@@ -59,10 +62,9 @@ function moveBallWhenHit(position)
 
 function setTheBallForComputer()
 {
-  
-    ball.style.bottom = '75%';
-    ball.style.left = '40%';
     ball.style.top = '';
+    ball.style.bottom = '85%';
+    ball.style.left = '40%';
 
     racket.style.bottom = '';
     racket.style.left = '40%';
@@ -73,23 +75,22 @@ function setTheBallForComputer()
 
 function moveRacketToHit(position, isItPlayerRacketHit)
 {
-   // var racket = document.getElementById('racket');
 
     if (isItPlayerRacketHit)
     {
         switch (position) {
             case 'Left':
-                //racket.style.top = '';
+                
                 racket.style.left = '10%';
                 racket.style.top = '75%';
                 break;
             case 'Center':
-                //racket.style.top = '';
+                
                 racket.style.left = '40%';
-                racket.style.top = '65%';
+                racket.style.top = '70%';
                 break;
             case 'Right':
-                //racket.style.top = '';
+                
                 racket.style.left = '70%';
                 racket.style.top = '75%';
                 break;
