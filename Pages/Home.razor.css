@@ -1,0 +1,102 @@
+﻿::deep body {
+    background-color: #e5e5f7;
+    opacity: 1;
+    background-image: radial-gradient(#A0C878 1.35px, #e5e5f7 1.35px);
+    background-size: 27px 27px;
+}
+
+::deep .home-page-font-style {
+    color: #143D60;
+    font-family: Montserrat;
+}
+
+::deep .typo-style {
+    display: inline;
+    padding-right: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+
+::deep .background-style-component {
+    background-color: #e5e5f7;
+    opacity: 1;
+    background-image: radial-gradient(#A0C878 1.35px, #e5e5f7 1.35px);
+    background-size: 27px 27px;
+}
+
+::deep .nav-button-style {
+    margin: 0 130px 0 130px;
+    color: #143D60 !important;
+    font-family: Montserrat !important;
+    font-weight: bold !important;
+    font-size: 15px !important;
+}
+
+::deep .nav-bar-position {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 125vh;
+}
+
+
+::deep .context-text {
+    height: 100vh;
+    position: fixed;
+    left: 44%;
+    top: 12%;
+    width: 55%;
+}
+
+
+
+::deep .centered {
+    position: fixed;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%);
+    transition: all 1s ease; /* Smooth transition for animations */
+}
+
+
+
+::deep .page-context {
+    position: fixed; 
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 60vw;
+    overflow: auto;
+    
+}
+
+
+
+::deep .mud-tabs-tabbar {
+    background-color: transparent;
+}
+
+::deep .mud-typography-h6, .mud-typography-h2, .mud-typography-h5, .mud-typography-h4 {
+    font-family: null;
+}
+
+::deep .mud-timeline-item-dot .mud-timeline-item-dot-inner.mud-timeline-dot-default {
+    background-color: white;
+}
+
+::deep .backInDown {
+    opacity: 0;
+    animation-delay: 0.3s;
+    animation-duration: 0.3s;
+    animation-name: backInDown;
+    animation-fill-mode: forwards;
+}
+
+::deep .backOutDown {
+    animation-duration: 0.3s;
+    animation-name: backOutDown;
+    animation-fill-mode: forwards;
+
+
