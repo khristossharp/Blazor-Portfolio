@@ -1,0 +1,150 @@
+﻿.court {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    border: 2px solid white;
+}
+
+.ball {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    transition: all 0.5s ease;
+    right: 40%;
+    bottom: 0%;
+}
+
+.racket {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    transition: all 0.5s ease;
+    right: 40%;
+    top: 0%;
+    color: white;
+
+}
+
+
+
+/*Court*/
+
+.tennis-court {
+    width: 300px;
+    height: 600px;
+    position: relative;
+    margin: 0 auto;
+    border: 2px solid #006400;
+}
+
+.court {
+
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 2px solid #006400;
+
+}
+
+.net {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: #000; /* Black net */
+    transform: translateY(-50%);
+}
+
+.baseline, .singles-line-left, .singles-line-right, .doubles-line,
+.singles-line-middle-top, .singles-line-middle-bottom {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #fff; /* White lines */
+}
+
+.service-line-top, .service-line-bottom {
+    position: relative;
+    width: 80%;
+    height: 2px;
+    background-color: #fff; /* White lines */
+}
+
+.service-line-top {
+    top: 30%;
+    left: 41px;
+}
+
+.service-line-bottom {
+    bottom: 30%;
+    right: -41px;
+}
+
+
+
+.baseline {
+    bottom: 0;
+    left: 0;
+}
+
+.singles-line-left {
+    height: 100%;
+    width: 2px;
+    background-color: #fff; /* White lines */
+    left: 10%;
+}
+
+.singles-line-right {
+    height: 100%;
+    width: 2px;
+    background-color: #fff; /* White lines */
+    right: 10%;
+}
+
+.singles-line-middle-top {
+    height: 20%;
+    width: 2px;
+    background-color: #fff; /* White lines */
+    right: 50%;
+    top: 30%;
+}
+
+.singles-line-middle-bottom {
+    height: 20%;
+    width: 2px;
+    background-color: #fff; /* White lines */
+    right: 50%;
+    bottom: 30%;
+}
+
+.doubles-line {
+    height: 100%;
+    width: 2px;
+    background-color: #fff; /* White lines */
+    right: 0;
+}
+
+/*Style position of player, comp and court and */
+.container {
+    display: flex;
+    width: 100%;
+    height: 83vh; /* Full viewport height */
+}
+
+.box {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.chipSize {
+    width: 100px;
+    height: 100px!important;
+    font-family: Arial;
+}
+

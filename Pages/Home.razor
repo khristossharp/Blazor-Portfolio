@@ -1,0 +1,295 @@
+﻿@page "/"
+@inject IDialogService DialogService
+
+<style>
+    body { 
+        background-color: #e5e5f7; 
+         opacity: 1; 
+        background-image: radial-gradient(#A0C878 1.35px, #e5e5f7 1.35px); 
+         background-size: 27px 27px;
+    }
+</style>
+
+<div> 
+
+<div >
+    <div>    
+        <MudImage Elevation="23" Style="border-radius:50%;height: 20%; width:30%" Src="images/imagePR.png" Alt="prof"></MudImage>
+    </div>
+    <br /> <br />
+    <MudGrid>
+        <MudItem>
+            <MudText Inline="true" Typo="Typo.h2" Style="margin-left:100px;" Class="home-page-font-style">Khristos Zin</MudText>
+        </MudItem>
+        <MudItem>
+            <div>
+            <MudIconButton Target="_blank" Href="https://github.com/khristossharp" Icon="@Icons.Custom.Brands.GitHub" Size="Size.Large" Color="Color.Info" ></MudIconButton>
+            <MudIconButton Target="_blank" Href="https://www.linkedin.com/in/khristosz/" Icon="@Icons.Custom.Brands.LinkedIn" Color="Color.Info" Size="Size.Large"></MudIconButton>
+            </div>  
+        </MudItem>
+    </MudGrid>
+ 
+    <br />
+    <MudText Typo="Typo.h6" Class="home-page-font-style">Software Developer | AWS Certified Cloud Practitioner |  C# .NET</MudText>
+    <br />
+    <div class="d-flex" style="justify-content:center;width:50vh;gap:45px;">
+        <MudText Inline="true" Typo="Typo.h4">&#9917</MudText>
+        <MudText Inline="true" Typo="Typo.h4">&#127934</MudText>
+        <MudText Inline="true" Typo="Typo.h4">&#128692</MudText>
+        <MudText Inline="true" Typo="Typo.h4">&#127946</MudText>
+    </div>
+</div>
+<div id="nav-container">
+    <MudAppBar Class="background-style-component nav-bar-position" Fixed="false">
+        <div><MudButton Class="nav-button-style" OnClick="@(e => ChangeThePage(0))" Variant="Variant.Text" Color="Color.Inherit">About Me</MudButton></div>
+        <div><MudButton Class="nav-button-style" OnClick="@(e => ChangeThePage(1))" Variant="Variant.Text" Color="Color.Inherit">Certification</MudButton></div>
+        <div><MudButton Class="nav-button-style" OnClick="@(e => ChangeThePage(2))" Variant="Variant.Text" Color="Color.Inherit">Project</MudButton></div>
+    </MudAppBar>
+
+</div>
+
+
+
+<div>
+    <MudContainer MaxWidth="MaxWidth.Small" Class="page-context background-style-component">    
+
+        <MudCarousel Class="mud-width-full context-text" SelectedIndex="_selectTab" ShowBullets="false" ShowArrows="false" TData="object" AutoCycle="false">
+            @*Experience section*@
+            <MudCarouselItem Transition="Transition.Custom" CustomTransitionEnter="@AnimationEntrance" CustomTransitionExit="@AnimationExit">
+                <div style="height:100%;justify-content:left;">
+                    <div style="justify-content:left;">
+
+                        <MudText Typo="Typo.subtitle1" Style="line-height:2;" Class="home-page-font-style">
+                            Software developer  with 2+ years of hands-on experience in C# and .NET.
+                            Specialties include: designing and developing web applications, troubleshooting and testing software,
+                            collaborating in an Agile environment, and maintaining coding standards with detailed documentation
+                        </MudText>
+                    </div>
+                    <hr />
+                    <MudGrid Spacing="18">
+                        <MudItem>
+                            <MudText Class="home-page-font-style" Typo="Typo.h4">IT Experience</MudText>
+                            <br />
+                            <div>
+                                <MudTimeline TimelinePosition="TimelinePosition.Start" TimelineOrientation="TimelineOrientation.Vertical">
+                                    <MudTimelineItem>
+                                        <ItemContent>
+                                            <MudText Class="home-page-font-style" Typo="Typo.h5"><strong>Software Developer</strong></MudText>
+                                            <MudText Class="home-page-font-style" Typo="Typo.subtitle2">June 2023 -  Mar 2024 </MudText>
+                                        </ItemContent>
+                                    </MudTimelineItem>
+
+                                    <MudTimelineItem HideDot="true">
+                                        <ItemContent>
+
+                                        </ItemContent>
+                                    </MudTimelineItem>
+
+                                    <MudTimelineItem>
+                                        <ItemContent>
+                                            <MudText Class="home-page-font-style" Typo="Typo.h5"><strong>Junior Software Developer</strong></MudText>
+                                            <MudText Class="home-page-font-style" Typo="Typo.subtitle2">Mar 2022 -  June 2023 </MudText>
+                                        </ItemContent>
+                                    </MudTimelineItem>
+
+                                </MudTimeline>
+                            </div>
+                        </MudItem>
+
+                        <MudItem>
+                            <MudText Class="home-page-font-style" Typo="Typo.h4">Education</MudText>
+                            <br />
+                            <br />
+                            <MudText Class="home-page-font-style" Typo="Typo.h5"><strong> Software Engineering Technician Diploma</strong></MudText>
+                            <MudText Class="home-page-font-style" Typo="Typo.subtitle2"> Jan 2022 - April 2023</MudText>
+                            <br />
+                            <MudText Typo="Typo.subtitle1" Style="line-height:1.5;" Class="home-page-font-style">
+                                <strong>Relevant Courses: </strong>
+                                <ul>
+                                    <li>Programming 3 (.NET)</li>
+                                    <li>Java Programming</li>
+                                    <li>Advanced Database Concepts (Oracle, SQL, MongoDB)</li>
+                                    <li>Web Interface Design</li>
+                                    <li>Client-Side Web Development (Angular, Node.js)</li>
+                                    <li>Unix/Linux Operating Systems</li>
+                                </ul>
+
+                            </MudText>  
+                        </MudItem>
+ 
+
+                    </MudGrid>
+                    <hr />
+                    <MudText Class="home-page-font-style" Typo="Typo.h4">Skills</MudText>
+                    <div style="align-items:center;justify-content:center;padding: 0px 100px 0 0px; margin: 0 100px 0 0;">
+                        <MudGrid>
+                            <MudItem xs="12" sm="6">
+                                <div>
+                                    <div class="typo-style home-page-font-style">C#</div>
+                                    <div class="d-inline"><MudProgressLinear Color="Color.Info" Size="Size.Medium" Value="88" Striped="true" /></div>
+                                </div>
+                            </MudItem>
+
+                            <MudItem xs="12" sm="6">
+                                <div>
+                                    <div class="typo-style home-page-font-style">.Net </div>
+                                    <div class="d-inline"><MudProgressLinear Color="Color.Info" Size="Size.Medium" Value="88" Striped="true" /></div>
+                                </div>
+                            </MudItem>
+
+                            <MudItem xs="12" sm="6">
+                                <div>
+                                    <div class="typo-style home-page-font-style">JavaScript</div>
+                                    <div class="d-inline"><MudProgressLinear Color="Color.Info" Size="Size.Medium" Value="89" Striped="true" /></div>
+                                </div>
+                            </MudItem>
+
+                            <MudItem xs="12" sm="6">
+                                <div>
+                                    <div class="typo-style home-page-font-style">AWS</div>
+                                    <div class="d-inline"><MudProgressLinear Color="Color.Info" Size="Size.Medium" Value="78" Striped="true" /></div>
+                                </div>
+                            </MudItem>
+
+                            <MudItem xs="12" sm="6">
+                                <div>
+                                    <div class="typo-style home-page-font-style">HTML5/CSS</div>
+
+                                    <div class="d-inline"><MudProgressLinear Color="Color.Info" Size="Size.Medium" Value="96" Striped="true" /></div>
+                                </div>
+                            </MudItem>
+
+                            <MudItem xs="12" sm="6">
+                                <div>
+                                    <div class="typo-style home-page-font-style">Blazor</div>
+                                    <div class="d-inline"><MudProgressLinear Color="Color.Info" Size="Size.Medium" Value="94" Striped="true" /></div>
+                                </div>
+                            </MudItem>
+                            <MudItem xs="12" sm="6">
+                                <div>
+                                    <div class="typo-style home-page-font-style">SQL</div>
+                                    <div class="d-inline"><MudProgressLinear Color="Color.Info" Size="Size.Medium" Value="82" Striped="true" /></div>
+                                </div>
+                            </MudItem>
+
+                            <MudItem xs="12" sm="6">
+                                <div>
+                                    <div class="typo-style home-page-font-style">Git</div>
+                                    <div class="d-inline"><MudProgressLinear Color="Color.Info" Size="Size.Medium" Value="86" Striped="true" /></div>
+                                </div>
+                            </MudItem>
+
+                            <MudItem xs="12" sm="6">
+                                <div>
+                                    <div class="typo-style home-page-font-style">Java</div>
+                                    <div class="d-inline"><MudProgressLinear Color="Color.Info" Size="Size.Medium" Value="65" Striped="true" /></div>
+                                </div>
+                            </MudItem>
+
+                            <MudItem xs="12" sm="6">
+                                <div>
+                                    <div class="typo-style home-page-font-style">Python</div>
+                                    <div class="d-inline"><MudProgressLinear Color="Color.Info" Size="Size.Medium" Value="68" Striped="true" /></div>
+                                </div>
+                            </MudItem>
+
+                        </MudGrid>
+                    </div>
+                </div>
+            </MudCarouselItem>
+
+            @* Certification *@
+            <MudCarouselItem Transition="Transition.Custom" CustomTransitionEnter="@AnimationEntrance" CustomTransitionExit="@AnimationExit">
+                <MudGrid>
+                    <MudItem>
+
+                        <MudCard Elevation="23" Class="background-style-component">
+                            <MudCardContent>
+                                <MudIcon Icon="@Icons.Material.Filled.PushPin" Size="Size.Large" Style="color:#143D60;"></MudIcon>
+                                <MudText Class="home-page-font-style" Typo="Typo.h5">AWS Certified Cloud Practitioner</MudText>
+                                <MudText Class="home-page-font-style" Typo="Typo.subtitle2">October 2024 </MudText>
+                                <br />
+                                <MudButton Variant="Variant.Outlined" Target="_blank" Href="https://www.credly.com/badges/43e2d12d-bc60-4e1d-b16d-7f3d1aeafda5"
+                                           Class="mud-text-secondary">
+                                   View Credential
+                                </MudButton>
+
+                            </MudCardContent>
+
+                        </MudCard>
+
+
+                    </MudItem>
+
+                    <MudItem>
+
+                        <MudCard Elevation="23" Class="background-style-component">
+                            <MudCardContent>
+                                <MudIcon Icon="@Icons.Material.Filled.PushPin" Size="Size.Large" Style="color:#143D60;"></MudIcon>
+                                <MudText Class="home-page-font-style" Typo="Typo.h5">Foundational C# with Microsoft</MudText>
+                                <MudText Class="home-page-font-style" Typo="Typo.subtitle2">July 2024 </MudText>
+                                <br />
+                                <MudButton Variant="Variant.Outlined"  Target="_blank" Href="https://www.freecodecamp.org/certification/SteelCode/foundational-c-sharp-with-microsoft "
+                                           Class="mud-text-secondary">
+                                    View Credential
+                                </MudButton>
+                            </MudCardContent>
+                        </MudCard>
+
+                    </MudItem>
+
+                    <MudItem>
+                        <MudCard Elevation="23" Class="background-style-component">
+                            <MudCardContent>
+                                <MudIcon Icon="@Icons.Material.Filled.PushPin" Size="Size.Large" Style="color:#143D60;"></MudIcon>
+                                <MudText Class="home-page-font-style" Typo="Typo.h5">Leet Code</MudText>
+                                <MudText Class="home-page-font-style" Typo="Typo.subtitle2">Demonstrated proficiency in algorithmic problem-solving and data structures through active participation on LeetCode</MudText>
+                                <MudText Class="home-page-font-style" Typo="Typo.subtitle2"> with a focus on sharpening coding skills and optimizing solutions</MudText>
+                               
+                                <br />
+                                <MudButton Variant="Variant.Outlined" Target="_blank" Href="https://leetcode.com/u/AstronaFT/"
+                                           Class="mud-text-secondary">
+                                    View Profile
+                                </MudButton>
+                            </MudCardContent>
+                        </MudCard>
+                    </MudItem>
+
+                </MudGrid>
+            </MudCarouselItem>
+            @* Project *@
+            <MudCarouselItem Transition="Transition.Custom" CustomTransitionEnter="@AnimationEntrance" CustomTransitionExit="@AnimationExit">
+                <div class="d-flex">
+                    <MudCard Elevation="23" Class="background-style-component">
+                        <MudCardContent>
+                            <MudIcon Icon="@Icons.Material.Filled.PushPin" Size="Size.Large" Style="color:#143D60;"></MudIcon>
+
+                            <MudText Class="home-page-font-style" Typo="Typo.h5">TennisGo Project</MudText>
+                            <MudText Class="home-page-font-style" Typo="Typo.body2">Enjoy the simple game of tennis</MudText>
+                            <br />
+                            <MudList Class="home-page-font-style" T="string">
+                                <MudListItem Text="Try to beat the computer 1v1" Icon="@Icons.Material.Filled.ArrowRight" />
+                                <MudListItem Text="Select tennis court color" Icon="@Icons.Material.Filled.ArrowRight" />
+                                <MudListItem Text="Begin the game with the serve" Icon="@Icons.Material.Filled.ArrowRight" />
+                            </MudList>
+                        </MudCardContent>
+                        <MudCardActions>
+                            <MudButton @onclick="OpenRegistrationFormAsync" Variant="Variant.Outlined" Color="Color.Default">Learn More</MudButton>
+                        </MudCardActions>
+                    </MudCard>
+                </div>
+
+            </MudCarouselItem>
+
+        </MudCarousel>
+    </MudContainer>
+
+</div>
+
+
+</div>
+
+
+
+
+   
